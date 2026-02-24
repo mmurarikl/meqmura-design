@@ -1,26 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>  
+
+<head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Mequila Murarik">
         <meta name="author" content="Mequila Murarik">
 
         <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer></script>
         <title>Mequila Murarik Design</title>
 </head>
+
 <body>
         <header>
+                <button id="theme-toggle" aria-label="Toggle light/dark mode">
+                        <!--dark mode toggle-->
+                        <svg id="dark-mode" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 9a3 3 0 1 1 -3 3l.005 -.176a3 3 0 0 1 2.995 -2.824" />
+                                <path d="M16 5a7 7 0 0 1 0 14h-8a7 7 0 0 1 0 -14zm0 2h-8a5 5 0 1 0 0 10h8a5 5 0 0 0 0 -10" />
+                        </svg>
+                        <!--light mode toggle-->
+                        <svg id="light-mode" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16 9a3 3 0 1 1 -3 3l.005 -.176a3 3 0 0 1 2.995 -2.824" />
+                                <path d="M16 5a7 7 0 0 1 0 14h-8a7 7 0 0 1 0 -14zm0 2h-8a5 5 0 1 0 0 10h8a5 5 0 0 0 0 -10" />
+                        </svg>
+                </button>
+                <h1>Mequila Murarik Design</h1>
                 <nav>
-
+                        <ul>
+                                <li><a href="#about">About</a></li>
+                                <li><a href="#work">Work</a></li>
+                                <li><a href="#jigsaw">Want to Play a Game?</a></li>
+                                <li><a href="#contact">Contact</a></li>
+                        </ul>
                 </nav>
         </header>
 </body>
 <main>
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Mequila</h2>
+            <p><strong>From studio practice to structured code.</strong></p>
+            <p>I began in fine art, studying painting and drawing with a focus on composition, restraint, and intentional mark-making. That foundation continues to shape how I approach digital design. To me, every element has weight, every decision has purpose.</p>
+            <p>After serving overseas in the military, I developed a deep respect for structure, discipline, and clarity. Those principles now guide my design process. I build with semantic HTML, organized CSS, and deliberate interaction and not decoration for decoration’s sake.</p>
+            <p>My work sits at the intersection of art and functionality. I’m interested in how visual systems translate into usable interfaces, and how thoughtful design can create inclusive, accessible experiences for diverse audiences.</p>
+        </div>
+        <aside class="about-aside">
+            <h3>Background</h3>
+                <ul>
+                    <li>Fine Art degree (Painting + Drawing)</li>
+                    <li>Graphic Information Technology degree (Web Development focus)</li>
+                    <li>International experience (Spain + Africa)</li>
+                </ul>
+            <h3>Focus</h3>
+                <ul>
+                    <li>Realism in fine art practice</li>
+                    <li>Structured visual systems</li>
+                    <li>Thoughtful front end builds</li>
+                </ul>
+        </aside>
+    </section>
+    <section id="work">
+        <div class="container"></div>
+            <h2>Design + Artwork</h2>
+            <div class="work">
+                <figure>
+                    <img src="" alt="">
+                    <figcaption><!--caption--></figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+    <section id="jigsaw">
+            <h2>Want to Play a Game?</h2>
+
+    </section>
+    <section id="contact">
+            <h2>Let's Connect</h2>
+                <form method="post" action="https://wp.zybooks.com/form-viewer.php">
+
+                <label for="fullName">Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+                        
+                <label for="phoneNumber">Mobile</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber">
+
+                <label for="emailAddress">Email</label>
+                <input type="email" id="emailAddress" name="emailAddress">
+
+                <fieldset>
+                    <legend>Contact Method Preference</legend>
+
+                    <input type="radio" id="email-pref" name="contact-pref" value="email-pref" checked>
+                    <label for="email-pref">Email</label>
+
+                    <input type="radio" id="text-pref" name="contact-pref" value="text-pref" required>
+                    <label for="text-pref">Text</label>
+                </fieldset>
+
+                <label for="comments">Comments:</label>
+                <textarea name="comments" id="comments"></textarea>
+
+                <input type="submit" value="Submit Form">
+                </form>
+        </section>
 
 </main>
 <footer>
-        
+        <p>This site is for educational purposes only.</p>
+        <p>&copy; 2026 Mequila Murarik Design.</p>
 </footer>
 
 </html>
