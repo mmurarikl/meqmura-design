@@ -12,8 +12,8 @@
 </head>
 
 <body>
-        <header>
-                <button id="theme-toggle" aria-label="Toggle light/dark mode">
+    <header>
+        <button id="theme-toggle" aria-label="Toggle light/dark mode">
                         <!--dark mode toggle-->
                         <svg id="dark-mode" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                                 viewBox="0 0 24 24" fill="currentColor">
@@ -25,17 +25,18 @@
                                 <path d="M16 9a3 3 0 1 1 -3 3l.005 -.176a3 3 0 0 1 2.995 -2.824" />
                                 <path d="M16 5a7 7 0 0 1 0 14h-8a7 7 0 0 1 0 -14zm0 2h-8a5 5 0 1 0 0 10h8a5 5 0 0 0 0 -10" />
                         </svg>
-                </button>
-                <h1>Mequila Murarik Design</h1>
-                <nav>
-                        <ul>
-                                <li><a href="#about">About</a></li>
-                                <li><a href="#work">Work</a></li>
-                                <li><a href="#jigsaw">Want to Play a Game?</a></li>
-                                <li><a href="#contact">Contact</a></li>
-                        </ul>
-                </nav>
-        </header>
+        </button>
+        <img src="images/stacked_rgb.png" alt="Mequila Murarik logo" class="logo">
+        <h1>Mequila Murarik Design</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#jigsaw">Want to Play a Game?</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
         <section id="about" class="about">
             <div class="container">
@@ -76,45 +77,56 @@
                 <div class="item-display">
                     <h3 id="itemTitle">Art - Portrait Study 1</h3>
                     <img id="itemImage" src="images/portrait-brandon.jpg" alt="Charcoal portrait of a man laying in a blanket">
-                    <p id="itemDescription"><!--text--></p>
-                    <video id="itemVideo">
+                    <p id="itemDescription">A charcoal portrait study focused on value control, proportion, and edge softness.</p>
+                    <video id="itemVideo" controls>
                         <source id="videoSource" src="" type="video/mp4">
                     </video>
                 </div>
             </div>
         </section>
         <section id="jigsaw">
-                <h2>Want to Play a Game?</h2>
+            <h2>Want to Play a Game?</h2>
 
+            <form id="gameForm">
+                <label for="numGuess">Enter a Number Between 1 and 10:</label>
+                <span class="message" id="gameMessage">Please enter a number from 1 to 10</span>
+
+                <input type="number" name="numGuess" id="numGuess" min="1" max="10" required>
+                <input type="submit" id="guessBtn" value="Try Your Luck!">
+            </form>
+
+            <h3>Guess a Number!</h3>
+            <p>Enter a number between 1 and 10 and click the button to try your luck.</p>
+            <p id="gameOutput"></p>
         </section>
         <section id="contact">
-                <h2>Let's Connect</h2>
-                    <form method="post" action="https://wp.zybooks.com/form-viewer.php">
+            <h2>Let's Connect</h2>
+                <form method="post" action="https://wp.zybooks.com/form-viewer.php">
 
-                    <label for="fullName">Name</label>
-                    <input type="text" id="fullName" name="fullName" required>
+                <label for="fullName">Name</label>
+                <input type="text" id="fullName" name="fullName" required>
                             
-                    <label for="phoneNumber">Mobile</label>
-                    <input type="tel" id="phoneNumber" name="phoneNumber">
+                <label for="phoneNumber">Mobile</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber">
 
-                    <label for="emailAddress">Email</label>
-                    <input type="email" id="emailAddress" name="emailAddress">
+                <label for="emailAddress">Email</label>
+                <input type="email" id="emailAddress" name="emailAddress">
 
-                    <fieldset>
-                        <legend>Contact Method Preference</legend>
+                <fieldset>
+                    <legend>Contact Method Preference</legend>
 
-                        <input type="radio" id="email-pref" name="contact-pref" value="email-pref" required>
-                        <label for="email-pref">Email</label>
+                    <input type="radio" id="email-pref" name="contact-pref" value="email-pref" required>
+                    <label for="email-pref">Email</label>
 
-                        <input type="radio" id="text-pref" name="contact-pref" value="text-pref" required>
-                        <label for="text-pref">Text</label>
-                    </fieldset>
+                    <input type="radio" id="text-pref" name="contact-pref" value="text-pref" required>
+                    <label for="text-pref">Text</label>
+                </fieldset>
 
-                    <label for="comments">Comments:</label>
-                    <textarea name="comments" id="comments" required></textarea>
+                <label for="comments">Comments:</label>
+                <textarea name="comments" id="comments" required></textarea>
 
-                    <input type="submit" value="Submit Form">
-                    </form>
+                <input type="submit" value="Submit Form">
+                </form>
             </section>
 
     </main>

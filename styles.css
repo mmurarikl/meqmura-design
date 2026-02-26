@@ -1,4 +1,7 @@
 /* CSS written by Mequila Murarik */
+/* imported fonts */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -48,10 +51,82 @@ table {
 	border-spacing: 0;
 }
 
+:root{
+    --charcoal: #191919;
+    --lt-grey: ##bfbfbf;
+    --blood-red: #8a0303;
+    --deep-red: #350101;
+    --bright-red: #df0505;
+    --gold: #e88f11;
+    --blue: #130f49;
+    font-family: "DM Serif Display", "Lora", serif;
+}
+header {
+    position: relative;
+    padding: 2rem 3rem;
+    background-color: var(--lt-grey);
+}
+header h1 {
+    justify-content: center;
+}
+header img {
+    width: 240px;
+    height: auto;
+    display: block;
+}
+#theme-toggle {
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    top: 2rem;
+    right: 3rem;
+    background: none;
+    border: none;
+}
+#theme-toggle svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+body.dark-mode #dark-mode { 
+    display: block; 
+}
+body.dark-mode #light-mode { 
+    display: none; 
+}
+nav {
+    margin-top: 2rem;
+}
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+a {
+    text-decoration: none;  
+}
+#dark-mode {
+    display: none;
+}
+#light-mode {
+    display: inline;
+}
+body.dark-mode #dark-mode {
+    display: inline;
+}
+body.light-mode #light-mode {
+    display: none;
+}
+
 .container {
-  width: 1280px;
+  max-width: 1280px;
   margin: 0 auto;
 }
-#itemVide {
+#itemVideo {
     display: none;
 }
