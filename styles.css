@@ -53,26 +53,38 @@ table {
 
 :root{
     --charcoal: #191919;
-    --lt-grey: ##bfbfbf;
+    --lt-grey: #bfbfbf;
     --blood-red: #8a0303;
     --deep-red: #350101;
     --bright-red: #df0505;
     --gold: #e88f11;
     --blue: #130f49;
+    --black: #000000;
+    --white: #ffffff;
+    --sky-blue: #3f5efb;
     font-family: "DM Serif Display", "Lora", serif;
+}
+body { 
+    max-width: 1280px;
+    margin: auto;
+    background: #3f5efb;
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(238, 174, 202, 1) 100%);
 }
 header {
     position: relative;
     padding: 2rem 3rem;
-    background-color: var(--lt-grey);
+    background-color: rgba(255, 255, 255, 0.5 );
+    border-radius: 36px;
+    margin-bottom: 24px;
 }
 header h1 {
-    justify-content: center;
+    display: none;
 }
 header img {
     width: 240px;
     height: auto;
     display: block;
+    padding: 10px;
 }
 #theme-toggle {
     position: absolute;
@@ -97,7 +109,7 @@ body.dark-mode #light-mode {
     display: none; 
 }
 nav {
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 nav ul {
     display: flex;
@@ -107,8 +119,20 @@ nav ul {
     padding: 0;
     margin: 0;
 }
-a {
-    text-decoration: none;  
+nav a {
+    text-decoration: none;
+    color: var(--charcoal); 
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 6px 8px;
+    border-radius: 4px;
+}
+nav a:hover {
+    background-color: var(--deep-red);
+    color: var(--white);
+}
+nav a:active {
+    color: var(--gold);
 }
 #dark-mode {
     display: none;
@@ -119,14 +143,311 @@ a {
 body.dark-mode #dark-mode {
     display: inline;
 }
-body.light-mode #light-mode {
+body.dark-mode #light-mode {
     display: none;
 }
-
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
+body.dark-mode {
+    background: var(--sky-blue);
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(53, 1, 1, 1) 100%); 
+}
+body.dark-mode main {
+    background-color: var(--blue);
+}
+body.dark-mode #work h2 {
+    color: var(--white);
+}
+body.dark-mode button {
+    background-color: var(--sky-blue);
+}
+main, footer {
+    background-color: rgba(63, 94, 251, 0.5);
+    border-radius: 36px;
+}
+main {
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+}
+h2 {
+    font-size: 1.75rem;
+}
+h3 {
+    font-size: 1.5rem;
+}
+p {
+    font-size: 1rem;
+    font-family: "Lora", serif;
+}
+.about {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+  padding: 32px;
+}
+.about-photo {
+  width: 280px;
+  object-fit: cover;
+  border-radius: 24px;
+}.about-card {
+  flex: 1; 
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 24px;
+  border-radius: 24px;
+  line-height: 1.5;
+}
+.about-card p:first-of-type {
+    font-weight: bold;
+}
+.about-card p {
+    padding-bottom: 6px;
+}
+.about-aside {
+  width: 320px;
+  background-color: rgba(255, 255, 255, 0.35);
+  padding: 24px;
+  border-radius: 24px;
+  line-height: 1.4;
+}
+.about-card h2 {
+  margin-bottom: 6px;
+}
+.about-aside h3 {
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+.about-aside ul {
+  list-style: circle;
+  padding-left: 18px;
+  margin-bottom: 12px;
+}
+.about-aside li {
+    font-family: "Lora", serif;
+}
+#work {
+    text-align: center;
+}
+#work h2, #work, h3 {
+    padding-bottom: 12px;
+}
+#work p {
+    padding-bottom: 24px;
+}
+#work .container {
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+.item-display {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 24px;
+    padding-top: 24px;
+    padding-bottom: 36px;
+    align-self: stretch;
+}
+.item-display img {
+    width: 70%;
+    display: block;
+    margin: 0 auto;
 }
 #itemVideo {
+    max-height: 420px;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    margin: 16px auto;
+}
+button, #guessBtn {
+    appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+}
+.display-controls button {
+    padding: 6px 8px;
+    margin-right: 8px;
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: 4px;
+}
+.display-controls button:hover {
+    background-color: var(--blood-red);
+}
+.display-controls button:active {
+    color: var(--gold);
+}
+/* add padding for headings in display */
+#jigsaw {
+    text-align: center;
+    padding: 32px;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 90%;
+    margin: auto;
+    border-radius: 24px;
+    margin-top: 24px;
+}
+#jigsaw h2 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+#jigsaw > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+    max-width: 900px;
+    width: 95%;
+    margin: 0 auto;  
+}
+#gameForm {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+#numGuess {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.2);
+    box-sizing: border-box; /* add this */
+}
+#guessBtn {
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 12px 16px;
+    border-radius: 10px;
+}
+#guessBtn:hover {
+    background-color: var(--blood-red);
+}
+#guessBtn:active {
+    color: var(--gold);
+}
+#gameDisplay h3 {
+    padding-bottom: 12px;
+}
+#gameDisplay p:first-of-type {
+    padding-bottom: 12px;
+}
+.message{
     display: none;
+    color: var(--bright-red);
+    font-size: 1.2em;
+    margin: 0.25em 0;
+    font-weight: bold;
+}
+#contact {
+    width: 90%;
+    margin: 24px auto;
+    padding: 32px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 24px;
+}
+#contact h2 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+#contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+#contact label, #contact legend {
+    font-family: "Lora", serif;
+    font-weight: bold;
+    color: var(--charcoal);
+}
+#contact input[type="text"], #contact input[type="tel"], #contact input[type="email"], #contact textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.2);
+    background-color: rgba(255,255,255,0.7);
+    font-family: "Lora", serif;
+    box-sizing: border-box;
+}
+#contact textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+#contact fieldset, #contact textarea, #contact label[for="comments"], #contact input[type="submit"] {
+    grid-column: 1 / -1;
+}
+#contact fieldset {
+    border: 2px solid rgba(0,0,0,0.15);
+    border-radius: 16px;
+    padding: 16px;
+    background-color: rgba(255,255,255,0.35);
+}
+#contact legend {
+    padding: 0 8px;
+}
+#contact fieldset input[type="radio"] {
+    margin-right: 8px;
+    transform: translateY(1px);
+}
+#contact fieldset label {
+    font-weight: normal;
+    margin-right: 18px;
+}
+#contact input:focus-visible, #contact textarea:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+#contact input[type="submit"] {
+    justify-self: center;
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+}
+#contact input[type="submit"]:hover {
+    background-color: var(--blood-red);
+}
+#contact input[type="submit"]:active {
+    transform: translateY(2px);
+    color: var(--gold);
+}
+.field-error {
+    display: none;
+    color: var(--bright-red);
+    font-family: "Lora", serif;
+    font-weight: bold;
+    margin-top: -8px;
+}
+.field-error.show {
+    display: block;
+}
+.input-error {
+    border: 2px solid var(--bright-red) !important;
+    background-color: rgba(223, 5, 5, 0.08);
+}
+.success-message {
+    margin-top: 16px;
+    text-align: center;
+    font-family: "Lora", serif;
+    font-weight: bold;
+    color: var(--blue);
+}
+footer {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px;
+}
+footer p {
+    padding: 10px;
+}
+body.dark-mode footer {
+    background-color: var(--blue);
+    color: var(--white);
 }

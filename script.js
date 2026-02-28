@@ -35,13 +35,6 @@ const videoSource = document.getElementById("videoSource");
     },
     {
       type: "image",
-      title: 'Art - Self Portrait',
-      src: 'images/portrait-self.jpg',
-      alt: 'Realistic self portrait artwork',
-      desc: 'An abstracted self portrait depicting my relationship with my spirituality.'
-    },
-    {
-      type: "image",
       title: 'Art - "Grief"',
       src: 'images/drawing-grief.jpg',
       alt: 'Artwork titled Grief',
@@ -128,3 +121,143 @@ buttons.forEach((button, index) => {
 
 showItem(0);
 });
+
+//contact form w error messages + obj adding
+(function () {
+  const contactForm = document.getElementById("contactForm");
+  if (!contactForm) return;
+
+  const fullName = document.getElementById("fullName");
+  const phoneNumber = document.getElementById("phoneNumber");
+  const emailAddress = document.getElementById("emailAddress");
+  const comments = document.getElementById("comments");
+
+  const contactPrefError = document.getElementById("contactPrefError");
+  const contactSuccess = document.getElementById("contactSuccess");
+
+  function getErrorEl(inputId) {
+    return document.getElementById(inputId + "Error");
+  }
+
+  function showError(inputEl, message) {
+    const err = getErrorEl(inputEl.id);
+    if (!err) return;
+
+    err.textContent = message;
+    err.classList.add("show");
+    inputEl.classList.add("input-error");
+  }
+
+  function clearError(inputEl) {
+    const err = getErrorEl(inputEl.id);
+    if (!err) return;
+
+    err.textContent = "";
+    err.classList.remove("show");
+    inputEl.classList.remove("input-error");
+  }
+
+  function showPrefError(message) {
+    contactPrefError.textContent = message;
+    contactPrefError.classList.add("show");
+  }
+
+  function clearPrefError() {
+    contactPrefError.textContent = "";
+    contactPrefError.classList.remove("show");
+  }
+
+  function getContactPreference() {
+    const checked = contactForm.querySelector('input[name="contact-pref"]:checked');
+    return checked ? checked.value : "";
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  const phoneRegex = /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
+
+  function validateContactForm() {
+    let isValid = true;
+    contactSuccess.textContent = "";
+
+    [fullName, phoneNumber, emailAddress, comments].forEach(clearError);
+    clearPrefError();
+
+    if (fullName.value.trim().length === 0) {
+      showError(fullName, "Please enter your name.");
+      isValid = false;
+    }
+
+    if (comments.value.trim().length === 0) {
+      showError(comments, "Please enter a comment/message.");
+      isValid = false;
+    }
+
+    const pref = getContactPreference();
+    if (!pref) {
+      showPrefError("Please choose Email or Text.");
+      isValid = false;
+    }
+
+    if (pref === "email") {
+      const emailVal = emailAddress.value.trim();
+      if (emailVal.length === 0) {
+        showError(emailAddress, "Email is required when you choose Email.");
+        isValid = false;
+      } else if (!emailRegex.test(emailVal)) {
+        showError(emailAddress, "Please enter a valid email (example: name@email.com).");
+        isValid = false;
+      }
+    }
+
+    if (pref === "phone") {
+      const phoneVal = phoneNumber.value.trim();
+      if (phoneVal.length === 0) {
+        showError(phoneNumber, "Mobile number is required when you choose Text.");
+        isValid = false;
+      } else if (!phoneRegex.test(phoneVal)) {
+        showError(phoneNumber, "Please enter a valid 10-digit phone number.");
+        isValid = false;
+      }
+    }
+
+    return isValid;
+  }
+
+  [fullName, phoneNumber, emailAddress, comments].forEach((el) => {
+    el.addEventListener("input", () => clearError(el));
+  });
+
+  contactForm.addEventListener("change", (e) => {
+    if (e.target && e.target.name === "contact-pref") {
+      clearPrefError();
+      clearError(phoneNumber);
+      clearError(emailAddress);
+    }
+  });
+
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    if (!validateContactForm()) return;
+
+    const customer = {
+      fullName: fullName.value.trim(),
+      contactPreference: getContactPreference(),
+      emailAddress: emailAddress.value.trim(),
+      phoneNumber: phoneNumber.value.trim(),
+      comments: comments.value.trim(),
+      submittedAt: new Date().toLocaleString()
+    };
+
+    const contactLine =
+      customer.contactPreference === "email"
+        ? `Email: ${customer.emailAddress}`
+        : `Mobile: ${customer.phoneNumber}`;
+
+    contactSuccess.textContent =
+      `Thanks, ${customer.fullName}! We received your message. Preferred contact: ${customer.contactPreference.toUpperCase()} (${contactLine}).`;
+
+    // Reset form
+    contactForm.reset();
+  });
+})();

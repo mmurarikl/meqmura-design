@@ -39,9 +39,10 @@
     </header>
     <main>
         <section id="about" class="about">
-            <div class="container">
+            <img class="about-photo" src="images/mequila-about-photo.jpg" alt="Photo of Mequila Murarik">
+            <div class="about-card">
                 <h2>About Mequila</h2>
-                <p><strong>From studio practice to structured code.</strong></p>
+                <p>From studio practice to structured code.</p>
                 <p>I began in fine art, studying painting and drawing with a focus on composition, restraint, and intentional mark-making. That foundation continues to shape how I approach digital design. To me, every element has weight, every decision has purpose.</p>
                 <p>After serving overseas in the military, I developed a deep respect for structure, discipline, and clarity. Those principles now guide my design process. I build with semantic HTML, organized CSS, and deliberate interaction and not decoration for decoration’s sake.</p>
                 <p>My work sits at the intersection of art and functionality. I’m interested in how visual systems translate into usable interfaces, and how thoughtful design can create inclusive, accessible experiences for diverse audiences.</p>
@@ -49,13 +50,13 @@
             <aside class="about-aside">
                 <h3>Background</h3>
                     <ul>
-                        <li>Fine Art degree (Painting + Drawing)</li>
-                        <li>Graphic Information Technology degree (Web Development focus)</li>
+                        <li>Bachelor of Fine Arts (Painting + Drawing)</li>
+                        <li>Bachelor of Science in Graphic Information Technology (Front-End Web Development)</li>
                         <li>International experience (Spain + Africa)</li>
                     </ul>
                 <h3>Focus</h3>
                     <ul>
-                        <li>Realism in fine art practice</li>
+                        <li>Hyperrealism in fine art practice</li>
                         <li>Structured visual systems</li>
                         <li>Thoughtful front end builds</li>
                     </ul>
@@ -67,17 +68,16 @@
                 <div class="display-controls">
                     <button type="button">Art - Portrait Study 1</button>
                     <button type="button">Art - Portrait Study 2</button>
-                    <button type="button">Art - Self Portrait</button>
                     <button type="button">Art - "Grief"</button>
                     <button type="button">Art - "God"</button>
-                    <button type="button">Design - Cover Mockup</button>
-                    <button type="button">Design - Open Book Mockup</button>
-                    <button type="button">Motion - Title Animation</button>
+                    <button type="button">Design - Book Cover</button>
+                    <button type="button">Design - Open Book</button>
+                    <button type="button">Motion - Logo Sting</button>
                 </div>
                 <div class="item-display">
                     <h3 id="itemTitle">Art - Portrait Study 1</h3>
-                    <img id="itemImage" src="images/portrait-brandon.jpg" alt="Charcoal portrait of a man laying in a blanket">
                     <p id="itemDescription">A charcoal portrait study focused on value control, proportion, and edge softness.</p>
+                    <img id="itemImage" src="images/portrait-brandon.jpg" alt="Charcoal portrait of a man laying in a blanket">
                     <video id="itemVideo" controls>
                         <source id="videoSource" src="" type="video/mp4">
                     </video>
@@ -86,52 +86,61 @@
         </section>
         <section id="jigsaw">
             <h2>Want to Play a Game?</h2>
+            <div>
+                <form id="gameForm">
+                    <label for="numGuess">Enter a Number Between 1 and 10:</label>
+                    <span class="message" id="gameMessage">Please enter a number from 1 to 10</span>
 
-            <form id="gameForm">
-                <label for="numGuess">Enter a Number Between 1 and 10:</label>
-                <span class="message" id="gameMessage">Please enter a number from 1 to 10</span>
+                    <input type="number" name="numGuess" id="numGuess" min="1" max="10" required>
+                    <input type="submit" id="guessBtn" value="Try Your Luck!">
+                </form>
 
-                <input type="number" name="numGuess" id="numGuess" min="1" max="10" required>
-                <input type="submit" id="guessBtn" value="Try Your Luck!">
-            </form>
-
-            <h3>Guess a Number!</h3>
-            <p>Enter a number between 1 and 10 and click the button to try your luck.</p>
-            <p id="gameOutput"></p>
+                <section id="gameDisplay">
+                    <h3>Guess a Number!</h3>
+                    <p>Enter a number between 1 and 10 and click the button to try your luck.</p>
+                    <p id="gameOutput"></p>
+                </section>
+            </div>
         </section>
         <section id="contact">
             <h2>Let's Connect</h2>
-                <form method="post" action="https://wp.zybooks.com/form-viewer.php">
 
+            <form id="contactForm" novalidate>
                 <label for="fullName">Name</label>
                 <input type="text" id="fullName" name="fullName" required>
-                            
+                <span class="field-error" id="fullNameError"></span>
+
                 <label for="phoneNumber">Mobile</label>
                 <input type="tel" id="phoneNumber" name="phoneNumber">
+                <span class="field-error" id="phoneNumberError"></span>
 
                 <label for="emailAddress">Email</label>
                 <input type="email" id="emailAddress" name="emailAddress">
+                <span class="field-error" id="emailAddressError"></span>
 
                 <fieldset>
-                    <legend>Contact Method Preference</legend>
+                <legend>Contact Method Preference</legend>
 
-                    <input type="radio" id="email-pref" name="contact-pref" value="email-pref" required>
-                    <label for="email-pref">Email</label>
+                <input type="radio" id="email-pref" name="contact-pref" value="email" required>
+                <label for="email-pref">Email</label>
 
-                    <input type="radio" id="text-pref" name="contact-pref" value="text-pref" required>
-                    <label for="text-pref">Text</label>
+                <input type="radio" id="text-pref" name="contact-pref" value="phone" required>
+                <label for="text-pref">Text</label>
+
+                <span class="field-error" id="contactPrefError"></span>
                 </fieldset>
 
                 <label for="comments">Comments:</label>
                 <textarea name="comments" id="comments" required></textarea>
+                <span class="field-error" id="commentsError"></span>
 
                 <input type="submit" value="Submit Form">
-                </form>
-            </section>
+            </form>
 
+            <p id="contactSuccess" class="success-message"></p>
+            </section>
     </main>
     <footer>
-            <p>This site is for educational purposes only.</p>
             <p>&copy; 2026 Mequila Murarik Design.</p>
     </footer>
 </body>
