@@ -1,12 +1,11 @@
 /* CSS written by Mequila Murarik */
 /* imported fonts */
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
-
+/* css reset */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -50,7 +49,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
+/* global styles */
 :root{
     --charcoal: #191919;
     --lt-grey: #bfbfbf;
@@ -86,6 +85,7 @@ header img {
     display: block;
     padding: 10px;
 }
+/* dark/light toggle styles */
 #theme-toggle {
     position: absolute;
     height: 32px;
@@ -101,38 +101,6 @@ header img {
     left: 0;
     width: 100%;
     height: 100%;
-}
-body.dark-mode #dark-mode { 
-    display: block; 
-}
-body.dark-mode #light-mode { 
-    display: none; 
-}
-nav {
-    margin-top: 1rem;
-}
-nav ul {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-nav a {
-    text-decoration: none;
-    color: var(--charcoal); 
-    font-weight: bold;
-    font-size: 1.1rem;
-    padding: 6px 8px;
-    border-radius: 4px;
-}
-nav a:hover {
-    background-color: var(--deep-red);
-    color: var(--white);
-}
-nav a:active {
-    color: var(--gold);
 }
 #dark-mode {
     display: none;
@@ -159,6 +127,33 @@ body.dark-mode #work h2 {
 body.dark-mode button {
     background-color: var(--sky-blue);
 }
+body.dark-mode footer {
+    background-color: var(--blue);
+    color: var(--white);
+}
+nav {
+    margin-top: 1rem;
+}
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+nav a {
+    text-decoration: none;
+    color: var(--charcoal); 
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 6px 8px;
+    border-radius: 4px;
+}
+nav a:hover {
+    background-color: var(--deep-red);
+    color: var(--white);
+}
+nav a:active {
+    color: var(--gold);
+}
 main, footer {
     background-color: rgba(63, 94, 251, 0.5);
     border-radius: 36px;
@@ -177,6 +172,16 @@ p {
     font-size: 1rem;
     font-family: "Lora", serif;
 }
+footer {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px;
+}
+footer p {
+    padding: 10px;
+}
+/* about card styles */
 .about {
   display: flex;
   gap: 24px;
@@ -187,7 +192,8 @@ p {
   width: 280px;
   object-fit: cover;
   border-radius: 24px;
-}.about-card {
+}
+.about-card {
   flex: 1; 
   background-color: rgba(255, 255, 255, 0.5);
   padding: 24px;
@@ -222,10 +228,11 @@ p {
 .about-aside li {
     font-family: "Lora", serif;
 }
+/* product display styles */
 #work {
     text-align: center;
 }
-#work h2, #work, h3 {
+#work h2, #work h3 {
     padding-bottom: 12px;
 }
 #work p {
@@ -258,6 +265,7 @@ p {
     display: block;
     margin: 16px auto;
 }
+/* guessing game styles */
 button, #guessBtn {
     appearance: none;
     -webkit-appearance: none;
@@ -279,7 +287,6 @@ button, #guessBtn {
 .display-controls button:active {
     color: var(--gold);
 }
-/* add padding for headings in display */
 #jigsaw {
     text-align: center;
     padding: 32px;
@@ -312,7 +319,7 @@ button, #guessBtn {
     padding: 10px 12px;
     border-radius: 10px;
     border: 1px solid rgba(0,0,0,0.2);
-    box-sizing: border-box; /* add this */
+    box-sizing: border-box;
 }
 #guessBtn {
     background-color: var(--blue);
@@ -339,6 +346,7 @@ button, #guessBtn {
     margin: 0.25em 0;
     font-weight: bold;
 }
+/* contact form styles */
 #contact {
     width: 90%;
     margin: 24px auto;
@@ -375,9 +383,6 @@ button, #guessBtn {
     min-height: 140px;
     resize: vertical;
 }
-#contact fieldset, #contact textarea, #contact label[for="comments"], #contact input[type="submit"] {
-    grid-column: 1 / -1;
-}
 #contact fieldset {
     border: 2px solid rgba(0,0,0,0.15);
     border-radius: 16px;
@@ -400,7 +405,8 @@ button, #guessBtn {
     outline-offset: 2px;
 }
 #contact input[type="submit"] {
-    justify-self: center;
+    align-self: center;
+    width: 100%;
     background-color: var(--blue);
     color: var(--white);
     padding: 12px 18px;
@@ -417,6 +423,7 @@ button, #guessBtn {
     transform: translateY(2px);
     color: var(--gold);
 }
+/* form error styles */
 .field-error {
     display: none;
     color: var(--bright-red);
@@ -437,17 +444,4 @@ button, #guessBtn {
     font-family: "Lora", serif;
     font-weight: bold;
     color: var(--blue);
-}
-footer {
-    font-size: 1.25rem;
-    font-weight: bold;
-    text-align: center;
-    padding: 12px;
-}
-footer p {
-    padding: 10px;
-}
-body.dark-mode footer {
-    background-color: var(--blue);
-    color: var(--white);
 }
