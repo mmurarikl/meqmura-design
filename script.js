@@ -91,45 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-
-    // guessing game
-    const gameForm = document.getElementById("gameForm");
-    const guessInput = document.getElementById("numGuess");
-    const gameOutput = document.getElementById("gameOutput");
-    const gameMessage = document.getElementById("gameMessage");
-
-    function handleGameSubmit(e) {
-        // prevent default page refresh
-        e.preventDefault();
-        
-        // form values come in as strings, so convert to a number
-        const guess = Number(guessInput.value);
-
-        // validation to only allow numbers 1-10
-        if (Number.isNaN(guess) || guess < 1 || guess > 10) {
-            gameMessage.style.display = "inline";
-            gameOutput.textContent = "";
-            return;
-        }
-        
-        // hide the error message once the input is valid
-        gameMessage.style.display = "none";
-
-        // random num between 1 - 10
-        const randomNum = Math.floor(Math.random() * 10) + 1;
-
-        // compare guess to random number + show result
-        if (guess === randomNum) {
-            gameOutput.textContent = `You guessed ${guess}. The random number was ${randomNum}. You win!`;
-        } else {
-            gameOutput.textContent = `You guessed ${guess}. The random number was ${randomNum}. Try again.`;
-        }
-
-        // reset input for next round
-        guessInput.value = "";
-        guessInput.focus();
-    }
-
     //contact form w error messages + obj adding
     const contactForm = document.getElementById("contactForm");
 
